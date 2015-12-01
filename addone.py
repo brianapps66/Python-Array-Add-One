@@ -1,11 +1,21 @@
-array = [0, 0, 0, 0, 0, 0, 0, 9, 9, 9, 9, 9, 9, 7]
+import sys
+import ast
+import argparse
 
+parser = argparse.ArgumentParser(
+    description = """addone function takes a number as an array with an element for each digit.
+    It adds one to the number and returns the result as a similar array.
+    Any leading zeroes will be removed."""
+)
+parser.add_argument('array', help = "An array of ints. It must not have spaces")
+args=parser.parse_args()
 
 def addone(arg):
     """
     addone function takes a number as an array with an element for each digit.
     It adds one to the number and returns the result as a similar array.
     Any leading zeroes will be removed.
+
     :param arg: array
     :return: array
     """
@@ -26,6 +36,5 @@ def addone(arg):
 
     return arg
 
-
-print(array)
+array = ast.literal_eval(sys.argv[1])
 print(addone(array))
